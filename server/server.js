@@ -24,9 +24,17 @@ todo.save().then(function(doc){
 });
 });
 
+app.get('/todos', function(req, res){
+    Todo.find().then(function(todos){
+        res.send({todos});
+    }, function(error){
+        res.status(400).send(e);
+    })
+})
+
 app.listen(3000, function(){
     console.log("Started on Port 3000");
-})
+});
 
 
 
